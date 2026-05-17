@@ -114,22 +114,24 @@
     return valid;
   }
 
-  function handleSubmit(form, messageEl, successText) {
+  const t = (key) => (window.MB_t ? window.MB_t(key) : key);
+
+  function handleSubmit(form, messageEl, successKey) {
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       messageEl.textContent = "";
       messageEl.className = "form-message";
 
       if (!validateForm(form)) {
-        messageEl.textContent = "Por favor, preencha todos os campos correctamente.";
+        messageEl.textContent = t("forms.error");
         messageEl.classList.add("error");
         return;
       }
 
       const data = new FormData(form);
-      console.log("Formulário enviado:", Object.fromEntries(data.entries()));
+      console.log("Form submitted:", Object.fromEntries(data.entries()));
 
-      messageEl.textContent = successText;
+      messageEl.textContent = t(successKey);
       messageEl.classList.add("success");
       form.reset();
     });
@@ -138,21 +140,13 @@
   const contactForm = document.getElementById("contact-form");
   const contactMessage = document.getElementById("contact-message");
   if (contactForm && contactMessage) {
-    handleSubmit(
-      contactForm,
-      contactMessage,
-      "Mensagem enviada com sucesso! Entraremos em contacto em breve."
-    );
+    handleSubmit(contactForm, contactMessage, "forms.contactOk");
   }
 
   const buffetForm = document.getElementById("buffet-form");
   const buffetMessage = document.getElementById("buffet-message");
   if (buffetForm && buffetMessage) {
-    handleSubmit(
-      buffetForm,
-      buffetMessage,
-      "Pedido de orçamento recebido! Responderemos em até 24 horas."
-    );
+    handleSubmit(buffetForm, buffetMessage, "forms.buffetOk");
   }
 
   const buffetDate = document.getElementById("buffet-data");
@@ -244,7 +238,10 @@
       dot.type = "button";
       dot.className = "gallery-carousel__dot";
       dot.setAttribute("role", "tab");
-      dot.setAttribute("aria-label", `Foto ${i + 1} de ${slides.length}`);
+      dot.setAttribute(
+        "aria-label",
+        t("gallery.photoOf", { n: i + 1, total: slides.length })
+      );
       dot.addEventListener("click", () => {
         goToCarouselSlide(i);
         startCarouselAutoplay();
@@ -262,6 +259,9 @@
   }
 
   window.addEventListener("gallery-ready", initGalleryCarousel);
+  window.addEventListener("language-changed", () => {
+    if (getCarouselSlides().length) initGalleryCarousel();
+  });
   if (getCarouselSlides().length) initGalleryCarousel();
 
   galleryTrack?.addEventListener("click", (e) => {

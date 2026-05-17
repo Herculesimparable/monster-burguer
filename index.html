@@ -21,21 +21,21 @@
 <body>
 
   <header class="hero" id="inicio">
-    <nav class="nav nav--hero" aria-label="Navegação principal">
+    <nav class="nav nav--hero" data-i18n-attr="aria-label" data-i18n="nav.aria" aria-label="Navegação principal">
       <a href="#inicio" class="nav__brand">
         <img src="assets/img/logo-brand.png" alt="Monster Burguer" width="48" height="48">
         <span class="nav__brand-text">Monster Burguer</span>
       </a>
       <ul class="nav__list">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#pedidos">Pedidos</a></li>
-        <li><a href="#locais">Locais</a></li>
-        <li><a href="#quem-somos">Quem Somos</a></li>
-        <li><a href="#bufe">Bufê</a></li>
-        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#inicio" data-i18n="nav.home">Início</a></li>
+        <li><a href="#pedidos" data-i18n="nav.orders">Pedidos</a></li>
+        <li><a href="#locais" data-i18n="nav.locations">Locais</a></li>
+        <li><a href="#quem-somos" data-i18n="nav.about">Quem Somos</a></li>
+        <li><a href="#bufe" data-i18n="nav.buffet">Bufê</a></li>
+        <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
       </ul>
-      <a href="#pedidos" class="btn btn--primary btn--sm nav__cta">Fazer Pedido</a>
-      <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">
+      <a href="#pedidos" class="btn btn--primary btn--sm nav__cta" data-i18n="nav.orderCta">Fazer Pedido</a>
+      <button class="nav__toggle" data-i18n-attr="aria-label" data-i18n="nav.openMenu" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -46,6 +46,8 @@
       <img
         class="hero__banner"
         src="assets/img/hero-main.png"
+        data-i18n-attr="alt"
+        data-i18n="hero.bannerAlt"
         alt="Monster Burguer — Hamburgueres em Luanda, Angola"
         width="1080"
         height="1920"
@@ -55,86 +57,88 @@
     </div>
 
     <div class="hero__panel">
-      <p class="hero__tagline">1 sabor monstruosamente irresistível</p>
+      <p class="hero__tagline" data-i18n="hero.tagline">1 sabor monstruosamente irresistível</p>
       <div class="hero__actions">
-        <a href="#pedidos" class="btn btn--primary btn--lg">Ver Cardápio &amp; Pedir</a>
-        <a href="#locais" class="btn btn--outline btn--lg">Ver Locais</a>
+        <a href="#pedidos" class="btn btn--primary btn--lg" data-i18n="hero.ctaMenu">Ver Cardápio &amp; Pedir</a>
+        <a href="#locais" class="btn btn--outline btn--lg" data-i18n="hero.ctaLocations">Ver Locais</a>
       </div>
     </div>
 
-    <a href="#pedidos" class="hero__scroll" aria-label="Ir para pedidos">
+    <a href="#pedidos" class="hero__scroll" data-i18n-attr="aria-label" data-i18n="hero.scroll" aria-label="Ir para pedidos">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
   </header>
 
-  <section class="showcase" aria-label="Destaque do produto">
+  <section class="showcase" data-i18n-attr="aria-label" data-i18n="showcase.aria" aria-label="Destaque do produto">
     <img
       src="assets/img/prod-burger-duplo.jpg"
+      data-i18n-attr="alt"
+      data-i18n="showcase.alt"
       alt="Monster Duplo — 1 sabor monstruosamente irresistível"
       loading="eager"
     >
     <div class="showcase__cta">
-      <a href="#pedidos" class="btn btn--primary btn--lg">Montar o meu pedido</a>
+      <a href="#pedidos" class="btn btn--primary btn--lg" data-i18n="showcase.cta">Montar o meu pedido</a>
     </div>
   </section>
 
   <section class="pedidos section" id="pedidos">
     <div class="container">
       <header class="section__header section__header--center">
-        <span class="section__label">Cardápio online</span>
-        <h2 class="section__title">Faça o seu pedido</h2>
-        <p class="pedidos__intro">Escolha produtos e ofertas, monte o pedido e envie tudo pronto no WhatsApp.</p>
+        <span class="section__label" data-i18n="pedidos.label">Cardápio online</span>
+        <h2 class="section__title" data-i18n="pedidos.title">Faça o seu pedido</h2>
+        <p class="pedidos__intro" data-i18n="pedidos.intro">Escolha produtos e ofertas, monte o pedido e envie tudo pronto no WhatsApp.</p>
       </header>
 
       <div class="pedidos__toolbar">
         <label class="search-box">
-          <span class="visually-hidden">Pesquisar no cardápio</span>
+          <span class="visually-hidden" data-i18n="pedidos.search">Pesquisar no cardápio</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          <input type="search" id="menu-search" placeholder="Pesquisar hambúrguer, batatas, gasosa...">
+          <input type="search" id="menu-search" data-i18n-attr="placeholder" data-i18n="pedidos.searchPlaceholder" placeholder="Pesquisar hambúrguer, batatas, gasosa...">
         </label>
       </div>
 
       <div class="pedidos__layout">
         <div class="pedidos__menu">
-          <nav class="menu-tabs" id="menu-tabs" aria-label="Categorias do cardápio"></nav>
-          <p class="menu-empty" id="menu-empty" hidden>Nenhum produto encontrado. Tente outra pesquisa.</p>
+          <nav class="menu-tabs" id="menu-tabs" data-i18n-attr="aria-label" data-i18n="pedidos.tabsAria" aria-label="Categorias do cardápio"></nav>
+          <p class="menu-empty" id="menu-empty" hidden data-i18n="pedidos.empty">Nenhum produto encontrado. Tente outra pesquisa.</p>
           <div class="menu-grid" id="menu-grid"></div>
         </div>
 
-        <aside class="cart-panel" id="cart-drawer" aria-label="O seu pedido">
+        <aside class="cart-panel" id="cart-drawer" data-i18n-attr="aria-label" data-i18n="cart.aria" aria-label="O seu pedido">
           <div class="cart-panel__header">
-            <h3>O seu pedido <span class="cart-count" id="cart-count" hidden>0</span></h3>
-            <button type="button" class="cart-panel__close" id="cart-close" aria-label="Fechar pedido">&times;</button>
+            <h3><span data-i18n="cart.title">O seu pedido</span> <span class="cart-count" id="cart-count" hidden>0</span></h3>
+            <button type="button" class="cart-panel__close" id="cart-close" data-i18n-attr="aria-label" data-i18n="cart.close" aria-label="Fechar pedido">&times;</button>
           </div>
 
-          <p class="cart-empty" id="cart-empty">O carrinho está vazio. Adicione produtos do cardápio.</p>
+          <p class="cart-empty" id="cart-empty" data-i18n="cart.empty">O carrinho está vazio. Adicione produtos do cardápio.</p>
           <ul class="cart-items" id="cart-items"></ul>
 
           <div class="cart-panel__footer">
             <label class="form-row" for="order-name">
-              <span>O seu nome</span>
-              <input type="text" id="order-name" placeholder="Como devemos chamar-lhe?" autocomplete="name">
+              <span data-i18n="cart.name">O seu nome</span>
+              <input type="text" id="order-name" data-i18n-attr="placeholder" data-i18n="cart.namePlaceholder" placeholder="Como devemos chamar-lhe?" autocomplete="name">
             </label>
 
             <div class="cart-total-row">
-              <span>Total</span>
+              <span data-i18n="cart.total">Total</span>
               <strong id="cart-total">0 Kz</strong>
             </div>
 
             <label class="form-row order-note" for="order-note">
-              <span>Observações (opcional)</span>
-              <textarea id="order-note" rows="2" placeholder="Ex: sem cebola, entrega em Talatona..."></textarea>
+              <span data-i18n="cart.note">Observações (opcional)</span>
+              <textarea id="order-note" rows="2" data-i18n-attr="placeholder" data-i18n="cart.notePlaceholder" placeholder="Ex: sem cebola, entrega em Talatona..."></textarea>
             </label>
 
             <button type="button" class="btn btn--whatsapp btn--full btn--lg" id="btn-whatsapp-order" disabled>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Enviar pedido no WhatsApp
+              <span data-i18n="cart.whatsapp">Enviar pedido no WhatsApp</span>
             </button>
 
-            <button type="button" class="btn btn--ghost btn--full btn--sm" id="btn-clear-cart" hidden>Limpar carrinho</button>
+            <button type="button" class="btn btn--ghost btn--full btn--sm" id="btn-clear-cart" hidden data-i18n="cart.clear">Limpar carrinho</button>
 
             <p class="checkout-phone-wrap">
-              Prefere ligar? Disponível ao finalizar:
+              <span data-i18n="cart.call">Prefere ligar? Disponível ao finalizar:</span>
               <a href="tel:+244922505397" class="checkout-phone" id="checkout-phone">+244 922 505 397</a>
             </p>
           </div>
@@ -149,8 +153,8 @@
   <section class="locais section" id="locais">
     <div class="container">
       <header class="section__header">
-        <span class="section__label">Onde estamos</span>
-        <h2 class="section__title">Locais em Angola</h2>
+        <span class="section__label" data-i18n="locais.label">Onde estamos</span>
+        <h2 class="section__title" data-i18n="locais.title">Locais em Angola</h2>
       </header>
       <div class="locais__grid">
         <article class="card locais__card">
@@ -159,7 +163,7 @@
           </div>
           <h3>Monster Burguer — Talatona</h3>
           <p>Rua Principal, Condomínio Belas Business Park<br>Talatona, Luanda — Angola</p>
-          <p class="locais__hours">Seg–Sex: 11h–22h · Sáb–Dom: 12h–23h</p>
+          <p class="locais__hours" data-i18n="locais.talatonaHours">Seg–Sex: 11h–22h · Sáb–Dom: 12h–23h</p>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Belas+Business+Park+Talatona+Luanda+Angola"
             target="_blank"
@@ -167,7 +171,7 @@
             class="btn btn--ghost btn--sm"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Abrir no Mapa
+            <span data-i18n="locais.map">Abrir no Mapa</span>
           </a>
         </article>
         <article class="card locais__card">
@@ -176,7 +180,7 @@
           </div>
           <h3>Monster Burguer — Maianga</h3>
           <p>Rua Amílcar Cabral, nº 45<br>Maianga, Luanda — Angola</p>
-          <p class="locais__hours">Ter–Dom: 12h–21h</p>
+          <p class="locais__hours" data-i18n="locais.maiangaHours">Ter–Dom: 12h–21h</p>
           <a
             href="https://www.google.com/maps/search/?api=1&query=Maianga+Luanda+Angola"
             target="_blank"
@@ -184,7 +188,7 @@
             class="btn btn--ghost btn--sm"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-            Abrir no Mapa
+            <span data-i18n="locais.map">Abrir no Mapa</span>
           </a>
         </article>
       </div>
@@ -194,48 +198,48 @@
   <section class="about section" id="quem-somos">
     <div class="container about__grid">
       <div class="about__brand">
-        <img src="assets/img/logo-banner.png" alt="Identidade Monster Burguer" loading="lazy">
+        <img src="assets/img/logo-banner.png" data-i18n-attr="alt" data-i18n="about.logoAlt" alt="Identidade Monster Burguer" loading="lazy">
       </div>
       <div class="about__text">
-        <span class="section__label">Quem Somos</span>
-        <h2 class="section__title">A marca que conquistou Luanda</h2>
-        <p>
+        <span class="section__label" data-i18n="about.label">Quem Somos</span>
+        <h2 class="section__title" data-i18n="about.title">A marca que conquistou Luanda</h2>
+        <p data-i18n-html="about.p1">
           A <strong>Monster Burguer</strong> nasceu em Angola com uma missão simples:
           servir o hambúrguer mais saboroso da cidade. Cada receita é preparada na hora,
           com pão macio, carnes selecionadas e molhos exclusivos que fazem a diferença.
         </p>
-        <p>
+        <p data-i18n="about.p2">
           Somos apaixonados por street food de qualidade — do almoço rápido ao bufê
           do seu evento. Em Talatona, Maianga e onde o nosso food truck aparecer,
           levamos sabor, energia e aquela experiência que fica na memória.
         </p>
         <div class="about__badges">
-          <span class="badge">🇦🇴 Feito em Angola</span>
-          <span class="badge">🔥 Na hora</span>
-          <span class="badge">👹 Sabor monstruoso</span>
+          <span class="badge" data-i18n="about.badge1">🇦🇴 Feito em Angola</span>
+          <span class="badge" data-i18n="about.badge2">🔥 Na hora</span>
+          <span class="badge" data-i18n="about.badge3">👹 Sabor monstruoso</span>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="gallery section" aria-label="Galeria Monster Burguer">
+  <section class="gallery section" data-i18n-attr="aria-label" data-i18n="gallery.aria" aria-label="Galeria Monster Burguer">
     <div class="container">
       <header class="section__header section__header--center">
-        <span class="section__label">Galeria</span>
-        <h2 class="section__title">O nosso cardápio visual</h2>
+        <span class="section__label" data-i18n="gallery.label">Galeria</span>
+        <h2 class="section__title" data-i18n="gallery.title">O nosso cardápio visual</h2>
       </header>
     </div>
-    <div class="gallery-carousel container" aria-label="Carrossel do cardápio">
+    <div class="gallery-carousel container" data-i18n-attr="aria-label" data-i18n="gallery.carouselAria" aria-label="Carrossel do cardápio">
       <div class="gallery-carousel__viewport" id="gallery-carousel">
         <div class="gallery-carousel__track" id="gallery-track" aria-live="polite"></div>
       </div>
       <p class="gallery-carousel__caption" id="gallery-caption"></p>
-      <div class="gallery-carousel__dots" id="gallery-dots" role="tablist" aria-label="Navegar fotos do cardápio"></div>
+      <div class="gallery-carousel__dots" id="gallery-dots" role="tablist" data-i18n-attr="aria-label" data-i18n="gallery.dotsAria" aria-label="Navegar fotos do cardápio"></div>
     </div>
   </section>
 
-  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" aria-label="Ver imagem ampliada">
-    <button type="button" class="lightbox__close" aria-label="Fechar">&times;</button>
+  <div class="lightbox" id="lightbox" hidden aria-hidden="true" role="dialog" data-i18n-attr="aria-label" data-i18n="lightbox.aria" aria-label="Ver imagem ampliada">
+    <button type="button" class="lightbox__close" data-i18n-attr="aria-label" data-i18n="lightbox.close" aria-label="Fechar">&times;</button>
     <img class="lightbox__img" src="" alt="">
     <p class="lightbox__caption"></p>
   </div>
@@ -243,9 +247,11 @@
   <section class="buffet section" id="bufe">
     <div class="container buffet__grid">
       <div class="buffet__visual card">
-        <span class="buffet__tag">Bufê</span>
+        <span class="buffet__tag" data-i18n="buffet.tag">Bufê</span>
         <img
           src="assets/img/buffet.jpg"
+          data-i18n-attr="alt"
+          data-i18n="buffet.imgAlt"
           alt="Bufê Monster Burguer com mini hambúrgueres"
           loading="lazy"
           width="800"
@@ -253,35 +259,35 @@
         >
       </div>
       <div class="buffet__content">
-        <span class="section__label">Eventos</span>
-        <h2 class="section__title">Serviço de Bufê</h2>
-        <p>
+        <span class="section__label" data-i18n="buffet.label">Eventos</span>
+        <h2 class="section__title" data-i18n="buffet.title">Serviço de Bufê</h2>
+        <p data-i18n="buffet.intro">
           Leve a Monster Burguer ao seu evento em Luanda! Bufê completo para festas,
           empresas e celebrações com montagem no local e equipa dedicada.
         </p>
         <ul class="buffet__list">
-          <li>Hambúrgueres artesanais (vários sabores)</li>
-          <li>Mini burgers e sliders</li>
-          <li>Acompanhamentos: batatas, saladas, molhos</li>
-          <li>Bebidas e sobremesas sob consulta</li>
-          <li>Opções vegetarianas disponíveis</li>
+          <li data-i18n="buffet.li1">Hambúrgueres artesanais (vários sabores)</li>
+          <li data-i18n="buffet.li2">Mini burgers e sliders</li>
+          <li data-i18n="buffet.li3">Acompanhamentos: batatas, saladas, molhos</li>
+          <li data-i18n="buffet.li4">Bebidas e sobremesas sob consulta</li>
+          <li data-i18n="buffet.li5">Opções vegetarianas disponíveis</li>
         </ul>
         <form class="form" id="buffet-form" novalidate>
           <div class="form__row form__row--2">
             <div class="form-row">
-              <label for="buffet-nome">Nome</label>
-              <input type="text" id="buffet-nome" name="nome" required autocomplete="name" placeholder="O seu nome">
+              <label for="buffet-nome" data-i18n="buffet.name">Nome</label>
+              <input type="text" id="buffet-nome" name="nome" required autocomplete="name" data-i18n-attr="placeholder" data-i18n="buffet.namePh" placeholder="O seu nome">
             </div>
             <div class="form-row">
-              <label for="buffet-email">Email</label>
-              <input type="email" id="buffet-email" name="email" required autocomplete="email" placeholder="email@exemplo.ao">
+              <label for="buffet-email" data-i18n="buffet.email">Email</label>
+              <input type="email" id="buffet-email" name="email" required autocomplete="email" data-i18n-attr="placeholder" data-i18n="buffet.emailPh" placeholder="email@exemplo.ao">
             </div>
           </div>
           <div class="form-row">
-            <label for="buffet-data">Data do evento</label>
+            <label for="buffet-data" data-i18n="buffet.date">Data do evento</label>
             <input type="date" id="buffet-data" name="data" required>
           </div>
-          <button type="submit" class="btn btn--primary">Solicitar Orçamento</button>
+          <button type="submit" class="btn btn--primary" data-i18n="buffet.submit">Solicitar Orçamento</button>
           <p class="form-message" id="buffet-message" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -291,21 +297,21 @@
   <section class="contact section pattern-bg" id="contacto">
     <div class="container">
       <header class="section__header section__header--center">
-        <span class="section__label section__label--light">Fale connosco</span>
-        <h2 class="section__title section__title--light">Contacto</h2>
+        <span class="section__label section__label--light" data-i18n="contact.label">Fale connosco</span>
+        <h2 class="section__title section__title--light" data-i18n="contact.title">Contacto</h2>
       </header>
       <div class="contact__grid">
         <div class="contact__info">
           <div class="contact__item">
-            <strong>Endereço</strong>
+            <strong data-i18n="contact.address">Endereço</strong>
             <p>Rua Principal, Belas Business Park<br>Talatona, Luanda — Angola</p>
           </div>
           <div class="contact__item">
-            <strong>Pedidos</strong>
-            <p>Faça o seu pedido online na secção <a href="#pedidos">Cardápio &amp; Pedidos</a>.</p>
+            <strong data-i18n="contact.orders">Pedidos</strong>
+            <p data-i18n-html="contact.ordersHtml">Faça o seu pedido online na secção <a href="#pedidos">Cardápio &amp; Pedidos</a>.</p>
           </div>
           <div class="contact__item">
-            <strong>Email</strong>
+            <strong data-i18n="contact.email">Email</strong>
             <p><a href="mailto:contacto@monsterburguer.ao">contacto@monsterburguer.ao</a></p>
           </div>
           <div class="contact__social">
@@ -319,22 +325,22 @@
         </div>
         <form class="form form--glass" id="contact-form" novalidate>
           <div class="form-row">
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" required autocomplete="name" placeholder="O seu nome">
+            <label for="nome" data-i18n="contact.name">Nome</label>
+            <input type="text" id="nome" name="nome" required autocomplete="name" data-i18n-attr="placeholder" data-i18n="contact.namePh" placeholder="O seu nome">
           </div>
           <div class="form-row">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email" placeholder="email@exemplo.ao">
+            <label for="email" data-i18n="contact.email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email" data-i18n-attr="placeholder" data-i18n="contact.emailPh" placeholder="email@exemplo.ao">
           </div>
           <div class="form-row">
-            <label for="assunto">Assunto</label>
-            <input type="text" id="assunto" name="assunto" required placeholder="Como podemos ajudar?">
+            <label for="assunto" data-i18n="contact.subject">Assunto</label>
+            <input type="text" id="assunto" name="assunto" required data-i18n-attr="placeholder" data-i18n="contact.subjectPh" placeholder="Como podemos ajudar?">
           </div>
           <div class="form-row">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required placeholder="A sua mensagem..."></textarea>
+            <label for="mensagem" data-i18n="contact.message">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" rows="4" required data-i18n-attr="placeholder" data-i18n="contact.messagePh" placeholder="A sua mensagem..."></textarea>
           </div>
-          <button type="submit" class="btn btn--white btn--full">Enviar Mensagem</button>
+          <button type="submit" class="btn btn--white btn--full" data-i18n="contact.submit">Enviar Mensagem</button>
           <p class="form-message" id="contact-message" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -351,21 +357,22 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
       </a>
     </div>
-    <p>&copy; 2026 Monster Burguer — Luanda, Angola. Todos os direitos reservados.</p>
+    <p data-i18n="footer.rights">&copy; 2026 Monster Burguer — Luanda, Angola. Todos os direitos reservados.</p>
   </footer>
 
-  <div class="mobile-bar" aria-label="Pedido rápido">
+  <div class="mobile-bar" data-i18n-attr="aria-label" data-i18n="mobile.aria" aria-label="Pedido rápido">
     <button type="button" class="mobile-bar__cart" id="cart-toggle">
-      Ver pedido <span class="cart-bar-count" id="cart-bar-count" hidden>0</span>
+      <span data-i18n="mobile.cart">Ver pedido</span> <span class="cart-bar-count" id="cart-bar-count" hidden>0</span>
     </button>
-    <a href="#pedidos" class="mobile-bar__menu">Cardápio</a>
+    <a href="#pedidos" class="mobile-bar__menu" data-i18n="mobile.menu">Cardápio</a>
   </div>
 
-  <a href="#pedidos" class="fab fab--desktop" aria-label="Ir para pedidos">
+  <a href="#pedidos" class="fab fab--desktop" data-i18n-attr="aria-label" data-i18n="fab.orders" aria-label="Ir para pedidos">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
   </a>
 
   <script src="js/images.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/order.js"></script>
   <script src="js/main.js"></script>
 </body>

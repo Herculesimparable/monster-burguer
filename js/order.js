@@ -6,33 +6,53 @@
   const CART_KEY = "monsterburguer-cart";
 
   const I = window.MB_IMG;
+  const t = (key, vars) => (window.MB_t ? window.MB_t(key, vars) : key);
 
-  const MENU = [
-    { id: "combo-monster", name: "Combo Monster", desc: "Hambúrguer + batatas + gasosa", price: 8500, category: "ofertas", badge: "Mais pedido", img: I.comboMonster },
-    { id: "combo-duplo", name: "Combo Duplo", desc: "2 hambúrgueres + batatas grandes", price: 12000, category: "ofertas", badge: "Oferta", img: I.comboDuplo },
-    { id: "combo-familia", name: "Combo Família", desc: "4 hambúrgueres + 2 batatas", price: 22000, category: "ofertas", badge: "Economia", img: I.comboFamilia },
-    { id: "monster-classic", name: "Monster Classic", desc: "Carne 180g, queijo, molho especial", price: 4500, category: "burgers", img: I.burgerClassic },
-    { id: "monster-bacon", name: "Monster Bacon", desc: "Bacon crocante, cheddar, cebola", price: 5500, category: "burgers", img: I.burgerBacon },
-    { id: "monster-cheese", name: "Monster Cheese", desc: "Duplo queijo, molho cheddar", price: 5000, category: "burgers", img: I.burgerCheese },
-    { id: "monster-veg", name: "Monster Vegetariano", desc: "Hambúrguer de legumes, queijo", price: 4800, category: "burgers", img: I.burgerVeg },
-    { id: "monster-bbq", name: "Monster BBQ", desc: "Molho barbecue, cebola caramelizada", price: 5200, category: "burgers", img: I.burgerBbq },
-    { id: "monster-picante", name: "Monster Picante", desc: "Jalapeños, queijo e molho picante", price: 5300, category: "burgers", badge: "Picante", img: I.burgerPicante },
-    { id: "monster-duplo", name: "Monster Duplo", desc: "Dupla carne 180g, queijo e molho", price: 6200, category: "burgers", badge: "Premium", img: I.burgerDuplo },
-    { id: "batatas", name: "Batatas Fritas", desc: "Porção generosa, sal e tempero", price: 1500, category: "sides", img: I.batatas },
-    { id: "batatas-cheddar", name: "Batatas com Cheddar", desc: "Batatas com molho cheddar", price: 2200, category: "sides", img: I.batatasCheddar },
-    { id: "onion-rings", name: "Onion Rings", desc: "Anéis de cebola empanados", price: 2000, category: "sides", img: I.onionRings },
-    { id: "refri", name: "Gasosa", desc: "Coca-Cola, Fanta ou Sprite 33cl", price: 800, category: "drinks", img: I.gasosa },
-    { id: "agua", name: "Água", desc: "Água mineral 50cl", price: 500, category: "drinks", img: I.agua },
-    { id: "sumo", name: "Sumo Natural", desc: "Sumo fresco do dia", price: 1200, category: "drinks", img: I.sumo },
+  const MENU_DEF = [
+    { id: "combo-monster", itemKey: "comboMonster", price: 8500, category: "ofertas", badgeKey: "popular", img: I.comboMonster },
+    { id: "combo-duplo", itemKey: "comboDuplo", price: 12000, category: "ofertas", badgeKey: "offer", img: I.comboDuplo },
+    { id: "combo-familia", itemKey: "comboFamilia", price: 22000, category: "ofertas", badgeKey: "economy", img: I.comboFamilia },
+    { id: "monster-classic", itemKey: "classic", price: 4500, category: "burgers", img: I.burgerClassic },
+    { id: "monster-bacon", itemKey: "bacon", price: 5500, category: "burgers", img: I.burgerBacon },
+    { id: "monster-cheese", itemKey: "cheese", price: 5000, category: "burgers", img: I.burgerCheese },
+    { id: "monster-veg", itemKey: "veg", price: 4800, category: "burgers", img: I.burgerVeg },
+    { id: "monster-bbq", itemKey: "bbq", price: 5200, category: "burgers", img: I.burgerBbq },
+    { id: "monster-picante", itemKey: "picante", price: 5300, category: "burgers", badgeKey: "spicy", img: I.burgerPicante },
+    { id: "monster-duplo", itemKey: "duplo", price: 6200, category: "burgers", badgeKey: "premium", img: I.burgerDuplo },
+    { id: "batatas", itemKey: "batatas", price: 1500, category: "sides", img: I.batatas },
+    { id: "batatas-cheddar", itemKey: "batatasCheddar", price: 2200, category: "sides", img: I.batatasCheddar },
+    { id: "onion-rings", itemKey: "onionRings", price: 2000, category: "sides", img: I.onionRings },
+    { id: "refri", itemKey: "gasosa", price: 800, category: "drinks", img: I.gasosa },
+    { id: "agua", itemKey: "agua", price: 500, category: "drinks", img: I.agua },
+    { id: "sumo", itemKey: "sumo", price: 1200, category: "drinks", img: I.sumo },
   ];
 
-  const CATEGORIES = [
-    { id: "all", label: "Todos" },
-    { id: "ofertas", label: "Ofertas" },
-    { id: "burgers", label: "Hambúrgueres" },
-    { id: "sides", label: "Acompanhamentos" },
-    { id: "drinks", label: "Bebidas" },
+  const CATEGORIES_DEF = [
+    { id: "all", labelKey: "all" },
+    { id: "ofertas", labelKey: "ofertas" },
+    { id: "burgers", labelKey: "burgers" },
+    { id: "sides", labelKey: "sides" },
+    { id: "drinks", labelKey: "drinks" },
   ];
+
+  let MENU = [];
+  let CATEGORIES = [];
+
+  function buildMenuData() {
+    MENU = MENU_DEF.map((p) => ({
+      id: p.id,
+      name: t(`menu.items.${p.itemKey}.name`),
+      desc: t(`menu.items.${p.itemKey}.desc`),
+      price: p.price,
+      category: p.category,
+      badge: p.badgeKey ? t(`menu.badge.${p.badgeKey}`) : undefined,
+      img: p.img,
+    }));
+    CATEGORIES = CATEGORIES_DEF.map((c) => ({
+      id: c.id,
+      label: t(`menu.cat.${c.labelKey}`),
+    }));
+  }
 
   let cart = [];
   let activeCategory = "all";
@@ -60,7 +80,8 @@
   const cartClose = document.getElementById("cart-close");
 
   function formatPrice(kz) {
-    return kz.toLocaleString("pt-AO") + " Kz";
+    const locale = window.MB_locale ? window.MB_locale() : "pt-AO";
+    return kz.toLocaleString(locale) + " Kz";
   }
 
   function normalize(str) {
@@ -97,9 +118,17 @@
       const parsed = JSON.parse(raw);
       if (!Array.isArray(parsed)) return;
       cart = parsed.filter((item) => findProduct(item.id) && item.qty > 0);
+      syncCartNames();
     } catch (_) {
       cart = [];
     }
+  }
+
+  function syncCartNames() {
+    cart.forEach((item) => {
+      const p = findProduct(item.id);
+      if (p) item.name = p.name;
+    });
   }
 
   function showToast(message) {
@@ -138,7 +167,7 @@
     saveCart();
     renderCart();
     updateCounts();
-    showToast(`${product.name} adicionado ao pedido`);
+    showToast(t("toast.added", { name: product.name }));
     if (window.innerWidth < 960) openCart();
   }
 
@@ -161,7 +190,7 @@
     saveCart();
     renderCart();
     updateCounts();
-    if (product) showToast(`${product.name} removido`);
+    if (product) showToast(t("toast.removed", { name: product.name }));
   }
 
   function clearCart() {
@@ -170,7 +199,7 @@
     saveCart();
     renderCart();
     updateCounts();
-    showToast("Carrinho limpo");
+    showToast(t("toast.cleared"));
     closeCart();
   }
 
@@ -189,16 +218,16 @@
 
   function buildWhatsAppMessage() {
     const siteName = window.MB_SITE?.name || "Monster Burguer";
-    let msg = `🍔 *PEDIDO — ${siteName}*\n\n`;
+    let msg = `🍔 *${t("whatsapp.title", { site: siteName })}*\n\n`;
     const name = orderName?.value.trim();
-    if (name) msg += `👤 Cliente: ${name}\n\n`;
+    if (name) msg += `👤 ${t("whatsapp.client")}: ${name}\n\n`;
     cart.forEach((item) => {
       msg += `• ${item.qty}x ${item.name} — ${formatPrice(item.price * item.qty)}\n`;
     });
-    msg += `\n*TOTAL: ${formatPrice(getCartTotal())}*`;
+    msg += `\n*${t("whatsapp.total")}: ${formatPrice(getCartTotal())}*`;
     const note = orderNote?.value.trim();
-    if (note) msg += `\n\n📝 Observações: ${note}`;
-    msg += `\n\n_Enviado pelo site ${siteName}_`;
+    if (note) msg += `\n\n📝 ${t("whatsapp.notes")}: ${note}`;
+    msg += `\n\n_${t("whatsapp.footer", { site: siteName })}_`;
     return msg;
   }
 
@@ -224,7 +253,7 @@
           <div class="menu-card__footer">
             <span class="menu-card__price">${formatPrice(p.price)}</span>
             <button type="button" class="btn btn--primary btn--sm menu-card__add" data-add="${p.id}">
-              + Adicionar
+              ${t("menu.add")}
             </button>
           </div>
         </div>
@@ -236,10 +265,10 @@
     menuGrid.querySelectorAll("[data-add]").forEach((btn) => {
       btn.addEventListener("click", () => {
         addToCart(btn.dataset.add);
-        btn.textContent = "✓ Adicionado";
+        btn.textContent = t("menu.added");
         btn.disabled = true;
         setTimeout(() => {
-          btn.textContent = "+ Adicionar";
+          btn.textContent = t("menu.add");
           btn.disabled = false;
         }, 1200);
       });
@@ -283,7 +312,7 @@
       <li class="cart-item">
         <div class="cart-item__info">
           <strong>${item.name}</strong>
-          <span>${formatPrice(item.price)} / un.</span>
+          <span>${formatPrice(item.price)} ${t("menu.perUnit")}</span>
         </div>
         <div class="cart-item__actions">
           <button type="button" class="cart-qty-btn" data-qty="${item.id}" data-delta="-1" aria-label="Menos">−</button>
@@ -370,11 +399,11 @@
           type="button"
           class="gallery-carousel__btn"
           data-lightbox="${p.img}"
-          data-caption="${p.name} — ${siteName}"
-          aria-label="Ver ${p.name} em tamanho grande"
+          data-caption="${t("gallery.caption", { name: p.name, site: siteName })}"
+          aria-label="${t("gallery.viewLarge", { name: p.name })}"
         >
           <img src="${p.img}" alt="${p.name}" loading="${i === 0 ? "eager" : "lazy"}" width="800" height="600">
-          <span class="gallery-carousel__zoom">Ver foto</span>
+          <span class="gallery-carousel__zoom">${t("gallery.zoom")}</span>
         </button>
       </article>
     `
@@ -383,9 +412,24 @@
     window.dispatchEvent(new CustomEvent("gallery-ready"));
   }
 
-  window.MONSTER_MENU = MENU;
+  function refreshUI() {
+    buildMenuData();
+    syncCartNames();
+    saveCart();
+    window.MONSTER_MENU = MENU;
+    renderTabs();
+    renderMenu();
+    renderCart();
+    renderGallery();
+    updateCounts();
+  }
 
+  window.addEventListener("language-changed", refreshUI);
+
+  buildMenuData();
+  window.MONSTER_MENU = MENU;
   loadCart();
+  syncCartNames();
   renderTabs();
   renderMenu();
   renderCart();
