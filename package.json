@@ -1,0 +1,13 @@
+{
+  "name": "monster-burguer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monster Burguer — Luanda, Angola",
+  "scripts": {
+    "start": "serve . -l 8080",
+    "dev": "serve . -l 8080"
+  },
+  "devDependencies": {
+    "serve": "^14.2.6"
+  }
+}
